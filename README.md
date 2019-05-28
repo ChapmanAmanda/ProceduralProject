@@ -1,4 +1,4 @@
-# HelloWorld
+# Procedural Project
 Problem statement:
 The goal of this project is to create a maintainable Android application that runs smoothly and can be built upon in time.
 The boundaries of this project include the language, the options include Java and Kotlin. 
