@@ -9,6 +9,7 @@
 #define HELLOWORLD_MAIN_H
 
 //prototypes
+
 void showMenu();
 
 bool menuChoice();
@@ -23,5 +24,12 @@ void addMoviePlayer();
 
 void displayProductionStats();
 
+void importData();
+
+void addNewItem();
+
+void showCatalog();
+
+void addItems();
 
 #endif //HELLOWORLD_MAIN_H
