@@ -12,9 +12,9 @@ The timeline I have created and hope to stick to, by week:
 
 1. Install IDE, watch C++ tutorial videos, learn C++ basics, code, meet requirements for Sprint 1 Backlog (SBL) - Basic Output 
 
-2. Continue learning C++ whiteboard project, psuedocode, code, meet requirements for Sprint 2 Backlog (SBL) - Conditions, Loops, Functions, Files intro.  
+2. Continue learning C++ whiteboard project, pseudocode, code, meet requirements for Sprint 2 Backlog (SBL) - Conditions, Loops, Functions, Files intro.  
 
-3. Tutorial videos, work on psuedocode, code, get help, meet requirements for Sprint 3 - Arrays and Vectors, Searching and Sorting 
+3. Tutorial videos, work on pseudocode, code, get help, meet requirements for Sprint 3 - Arrays and Vectors, Searching and Sorting 
 
 4. Tutorial videos, code, meet requirements for Sprint 4 - Pointers, Characters, Strings, Recursion 
 
