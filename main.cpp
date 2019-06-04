@@ -1,3 +1,14 @@
+/** @file filename.cpp
+ *  @brief This is a procedural project using only functions, no classes
+ *
+ *  The procedural project is a demonstration of what we learned through the COP2001 course
+ *  This simulates a program created for a media player production facility that will keep track of what products are
+ *  produced
+ *
+ *  @author Amanda Chapman
+ *  @bug No known bugs.
+ */
+
 #include <iostream>
 #include <iomanip>
 #include <fstream> // included to use fstream
@@ -6,6 +17,7 @@
 #include <algorithm> // allows sorting
 #include <sstream> // allows use of stringstream
 #include "main.h" // included to use prototypes
+
 using namespace std;
 
 // Global Variables:
@@ -33,10 +45,12 @@ vector<string> product_type;                // stores type for each product that
 vector<string> serial_number;               // stores serial number for each product that has been produced
 vector<int> product_number;                 // stores product number for each product that has been produced
 
-// @ brief main is the starting point of the program
-// It first loads information from previous entries from files in importData()
-// A do-while loop is used to display the program menu and get user input to direct to functions
-// showMenu() and menuChoice() are called each time a function ends, until user chooses to exit program
+/** @ brief main is the starting point of the program
+ It first loads information from previous entries from files in importData()
+ A do-while loop is used to display the program menu and get user input to direct to functions
+ showMenu() and menuChoice() are called each time a function ends, until user chooses to exit program
+ @ return this function returns 0 when it executes properly
+ **/
 int main() {
 
     std::cout << "\nProduction Line Tracker\n";
@@ -49,7 +63,8 @@ int main() {
     return 0;
 }
 
-// @ brief showMenu function displays the program menu to the user
+/** @ brief showMenu function displays the program menu to the user
+ * **/
 void showMenu() {
     std::cout << "\n___________________________________________\n\n";
     std::cout << "1. Produce Item\n";
@@ -60,9 +75,10 @@ void showMenu() {
     std::cout << "6. Exit\n";
 }
 
-// @ brief menuChoice function gets user input for the menu from showMenu()
-// They are then directed to the corresponding functions
-// Each time they leave the function, showMenu() is displayed and the will be directed here again
+/** @ brief menuChoice function gets user input for the menu from showMenu()
+* They are then directed to the corresponding functions
+* Each time they leave the function, showMenu() is displayed and the will be directed here again
+**/
 bool menuChoice() {
     int choice;
     std::cin >> choice;
@@ -93,8 +109,9 @@ bool menuChoice() {
     return true; // after each function call, true is returned to cont in order to display menu again
 }
 
-// @ brief produceItems function gets user input to direct them to the right function
-// for the task they want to perform
+/** @ brief produceItems function gets user input to direct them to the right function
+ for the task they want to perform
+ **/
 void produceItems() {
     int selection;
 
@@ -117,8 +134,9 @@ void produceItems() {
     }
 }
 
-// @ brief this function gets user input for new items
-// it stores manufacturer, name, and itemType to product_line vectors and to the catalog file
+/** @ brief this function gets user input for new items
+ it stores manufacturer, name, and itemType to product_line vectors and to the catalog file
+ **/
 void addNewItem() {
     string manufacturer;
     string name;
@@ -163,10 +181,11 @@ void addNewItem() {
     }
 }
 
-// @ brief showCatalog function reads data from catalog file and prints to the user
-// In order for it to print catalog file, there must be previously added information
-// Information can be added to catalog file by choosing to Produce New Items in the produceItems() function
-// This function is followed by addItems(), user is expected to produce items from this menu
+/** @ brief showCatalog function reads data from catalog file and prints to the user
+ In order for it to print catalog file, there must be previously added information
+ Information can be added to catalog file by choosing to Produce New Items in the produceItems() function
+ This function is followed by addItems(), user is expected to produce items from this menu
+ **/
 void showCatalog() {
     // importData
     // prints catalog to user
@@ -180,7 +199,7 @@ void showCatalog() {
     catalogFile.open("catalog.txt"); // opens catalog.txt
 
     if (catalogFile.is_open()) {
-        if(!product_line_name.empty()) {
+        if (!product_line_name.empty()) {
             while (catalogFile >> manufacturer >> name >> type) {
                 // manufacturer, name, and type are set to the three strings on each line (in order)
                 // prints as: 1. manufacturer name type
@@ -188,7 +207,7 @@ void showCatalog() {
                 index++;
             }
             addItems(); // addItems is called after we make sure there are items in the catalog that can be produced
-        }else{
+        } else {
             cout << "There is nothing in the catalog" << endl;
         }
     } else {
@@ -197,9 +216,10 @@ void showCatalog() {
     catalogFile.close(); // closes file
 }
 
-// @ brief addItems function is called from produceItems() when user selects See Available Products
-// function starts by importing data to keep production number up to date
-// all products that are added get stored into product_ vectors, production file, and data file
+/** @ brief addItems function is called from produceItems() when user selects See Available Products
+ function starts by importing data to keep production number up to date
+ all products that are added get stored into product_ vectors, production file, and data file
+ **/
 void addItems() {
     int add, index, catalog_selection;
     //importData(); // import data before starting catalog to get production number
@@ -253,24 +273,29 @@ void addItems() {
     productionFile.close(); // closes file
 }
 
-// @brief addEmployeeAccount function
+/** @brief addEmployeeAccount function
+ **/
 void addEmployeeAccount() {
     std::cout << "Add Employee Account Stub\n";
 }
 
-// @brief addMusicPlayer function
+/** @brief addMusicPlayer function
+ */
 void addMusicPlayer() {
     std::cout << "Add Music Player Stub\n";
 }
 
-// @brief addMoviePlayer function
+/** @brief addMoviePlayer function
+ *
+ */
 void addMoviePlayer() {
     std::cout << "Add Movie Player Stub\n";
 }
 
-// @brief displayProductionStats is able to display production statistics,
-// find and display production number corresponding to user input for serial number
-// and sort catalog items by name and display
+/** @brief displayProductionStats is able to display production statistics,
+ find and display production number corresponding to user input for serial number
+ and sort catalog items by name and display
+ **/
 void displayProductionStats() {
     //importData(); // import data in order to display production and find serial number
     bool found = false; // set to false to search through vector serial_number
@@ -332,7 +357,7 @@ void displayProductionStats() {
     }
 }
 
-/* @brief importData function imports the production history into the product_ vectors
+/** @brief importData function imports the production history into the product_ vectors
  * And the catalog information into the product_line vectors
  * This let's the program store and manipulate the data each time it runs so that previous entries are not lost.
  */
