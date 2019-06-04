@@ -178,16 +178,21 @@ void showCatalog() {
 
     std::ifstream catalogFile;
     catalogFile.open("catalog.txt"); // opens catalog.txt
+
     if (catalogFile.is_open()) {
-        while (catalogFile >> manufacturer >> name >> type) {
-            // manufacturer, name, and type are set to the three strings on each line (in order)
-            // prints as: 1. manufacturer name type
-            cout << index << ". " << manufacturer << " " << name << " " << type << endl;
-            index++;
+        if(!product_line_name.empty()) {
+            while (catalogFile >> manufacturer >> name >> type) {
+                // manufacturer, name, and type are set to the three strings on each line (in order)
+                // prints as: 1. manufacturer name type
+                cout << index << ". " << manufacturer << " " << name << " " << type << endl;
+                index++;
+            }
+            addItems(); // addItems is called after we make sure there are items in the catalog that can be produced
+        }else{
+            cout << "There is nothing in the catalog" << endl;
         }
-        addItems(); // addItems is called after we make sure there are items in the catalog that can be produced
     } else {
-        cout << "There is nothing in the catalog" << endl;
+        cout << "The catalog file is not open" << endl;
     }
     catalogFile.close(); // closes file
 }
