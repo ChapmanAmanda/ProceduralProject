@@ -45,6 +45,11 @@ vector<string> product_type;                // stores type for each product that
 vector<string> serial_number;               // stores serial number for each product that has been produced
 vector<int> product_number;                 // stores product number for each product that has been produced
 
+
+vector<string> user_id;                    // holds user ids of employees
+vector<string> user_password;
+
+
 /** @ brief main is the starting point of the program
  It first loads information from previous entries from files in importData()
  A do-while loop is used to display the program menu and get user input to direct to functions
@@ -273,10 +278,26 @@ void addItems() {
     productionFile.close(); // closes file
 }
 
-/** @brief addEmployeeAccount function
+/** @brief addEmployeeAccount function lets user enter their full name to create user id
+ * that is stored in the user_id vector the function then calls the createPassword() function
  **/
 void addEmployeeAccount() {
-    std::cout << "Add Employee Account Stub\n";
+    string first_name; // used to hold user input for their first name
+    string last_name; // used to hold user input for their last name
+    string first_initial; // holds the first initial of users first name to apply to username
+
+    cout << "To begin, enter your first and last name: " << endl;
+    cin >> first_name >> last_name;
+
+    // transform first and last name to all lower case to use in user id
+    transform(first_name.begin(), first_name.end(), first_name.begin(), tolower);
+    transform(last_name.begin(), last_name.end(), last_name.begin(), tolower);
+
+    first_initial = first_name.substr(0, 1);
+    user_id.push_back(first_initial + last_name);
+    cout << "Your User ID is: " << first_initial + last_name << "\n\n";
+
+    createPassword();
 }
 
 /** @brief addMusicPlayer function
@@ -436,5 +457,85 @@ void importData() {
                   visualmobile_num++;
               }
           }*/
+    }
+}
+
+/** @ brief createPassword function is called from addEmployeeAccount
+ * user is prompted to create a password following the guidelines
+ * function tests to make sure the password is valid before storing it in the vector
+ */
+void createPassword() {
+    string password; // stores password
+    bool valid; // boolean used to test if password is valid
+    bool upper = false; // boolean used when testing for uppercase letters
+    bool lower = false; // boolean used when testing for lowercase letters
+    bool digit = false; // boolean used when testing for digits
+
+    cout << "Now create a password: \n" << "Your password must be no more than 10 characters including: \n" <<
+         "\tAt least one uppercase letter\n\tAt least one lowercase letter\n\tAt least one letter\n" <<
+         "\t(No special characters or spaces allowed.)" << endl;
+
+    do {
+        cin >> password;
+
+        // use for loop to check each letter for uppercase, lowercase, and digits
+        for (int i = 0; i < password.length(); i++) {
+            if (isupper(password[i])) {
+                upper = true;
+            }
+            if (islower(password[i])) {
+                lower = true;
+            }
+            if (isdigit(password[i])) {
+                digit = true;
+            }
+        }
+
+        // if there is an uppercase, lowercase, AND digit then valid = true
+        if (upper && lower) {
+            if (digit) {
+                valid = true;
+            } else {
+                valid = false;
+            }
+        } else {
+            valid = false;
+        }
+
+        // test for other characters, valid set to false if there are any symbols or spaces
+        for (int i = 0; i < password.length(); i++) {
+            if (!isalnum(password[i])) {
+                valid = false;
+            }
+        }
+        if (!valid) {
+            cout << "your password did not meet all the requirements, try again: " << endl;
+        }
+    } while (!valid);
+
+    // if password meets requirements, add it to the password vector
+    // then encrypt and decrypt it
+    if (valid) {
+        user_password.push_back(password); // valid password gets stored in the vector
+
+        string encrypted = encrypt_password(password);
+
+        cout << "Encrypted password: " << encrypted;
+    }
+}
+
+/** @brief encrypt_password function takes the users password input and encrypts it.
+ * @param pass is the users input for their password
+ * @return the encrypted password
+ */
+string encrypt_password(string pass) {
+    if (pass.length() == 1) {
+        return pass;
+    } else {
+        int ascii_code = (int) pass[0];
+        int ascii_code_of_char = ascii_code + 3;
+        char encrypted_char = (char) ascii_code_of_char;
+
+        return encrypted_char + encrypt_password(pass.substr(1, pass.length() - 1));
     }
 }

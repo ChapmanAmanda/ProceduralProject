@@ -32,4 +32,9 @@ void showCatalog();
 
 void addItems();
 
+void createPassword();
+
+std::string encrypt_password(std::string);
+
+
 #endif //HELLOWORLD_MAIN_H
