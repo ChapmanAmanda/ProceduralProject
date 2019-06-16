@@ -23,13 +23,11 @@ The timeline I have created and hope to stick to, by week:
 6. Finish code, test app, run tests using other people, seek help in improving code, meet requirements for Sprint 6 - Quality Analysis turn in 
 
 Time Log: 
-Spent 9+ hours on sprint 3
+Spent 4+ hours on sprint 4
 Changes made:
-Stored product line information including manufacturer, name, type into vectors
-Stored product information including production number, serial number, manufacture, name, type into vectors  
-added 3 options under production_statistics() including: View all production statistcs, Search for production number by serial number, and See items sorted by name 
-Created data.txt and importData function to store and import data each time the main loop iterates,
- this ensures the data will not be lost and the vectors will be in order 
- Enhanced produceItems() to display a menu first with two options: See available products and Produce new item 
- See available products calls showCatalog() followed by addItems(), given that catalog holds information 
- Produce new item calls addNewItem() to write new products to the catalog file 
+Create an Employee account. 
+Allow user to input full name in format FirstName LastName.  
+Generate user id, which is their first initial and surname in all lowercase 
+Allow user to input a password for the user  
+The password must contain at least one digit, at least one lowercase letter, and at least one uppercase letter. The password cannot contain a space or any other symbols.  
+Use a recursive function to encrypt the password.  
