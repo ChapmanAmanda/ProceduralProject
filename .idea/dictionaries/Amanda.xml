@@ -2,6 +2,8 @@
   <dictionary name="Amanda">
     <words>
       <w>ofstream</w>
+      <w>productline</w>
+      <w>sortnames</w>
     </words>
   </dictionary>
 </component>
