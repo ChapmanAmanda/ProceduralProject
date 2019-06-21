@@ -1,4 +1,11 @@
-# Procedural Project 
+# Procedural Project
+This project demonstrates knowledge of the C++ language and procedural programming.
+This is simulation of a program that is able to store production log and the users username/password
+
+# Demonstration 
+![](ProceduralGif.gif)
+
+# Procedural Project Problem Statement
 Problem statement: 
 The goal of this project is to create an application that runs smoothly and can be built upon in time. 
 The boundaries of this project include the language, it has to be done in C++.  
@@ -7,9 +14,6 @@ Constraints for this project include limited knowledge of programming language, 
 a six week time limit, and PSI requirements. 
 To be successful in this goal the project needs to work, be user friendly, and get a grade of B or higher. 
 Stakeholders in this project include myself, Professor Vanselow, and potential employers. 
-
-# Demonstration:
-![](ProceduralGif.gif)
 
 
 The timeline I have created and hope to stick to, by week: 
@@ -26,6 +30,7 @@ The timeline I have created and hope to stick to, by week:
 
 6. Finish code, test app, run tests using other people, seek help in improving code, meet requirements for Sprint 6 - Quality Analysis turn in 
 
+# Time log
 This weeks productivity: 
 1. Output production statistics such as total number of items produced and number of items of each type. 
 2. Clear all warnings from Inspect Code. 
