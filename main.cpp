@@ -69,7 +69,6 @@ int main() {
     bool cont;
     do {
         importData(record, productline, &stats, &prods); // get data each time program runs through main
-
         showMenu(); // displays the menu
         cont = menuChoice(record, productline, &stats, user_id, user_password, &prods);
         // sets return value from menu choice to cont
@@ -244,12 +243,12 @@ void showCatalog(Product *prods, vector<Product_Line> &productline, Statistics *
             cout << index << ". " << manufacturer << " " << name << " " << type << endl;
             index++;
         }
-        if(index > 1) {
-            addItems(prods, productline, stats);
-            // addItems is called after we make sure there are items in the catalog that can be produced
-        }else {
-            cout << "There is nothing in the catalog" << endl;
-        }
+    }
+    if(index > 1) {
+        addItems(prods, productline, stats);
+        // addItems is called after we make sure there are items in the catalog that can be produced
+    }else {
+        cout << "There is nothing in the catalog" << endl;
     }
     catalogFile.close(); // closes file
 }
@@ -265,7 +264,6 @@ void showCatalog(Product *prods, vector<Product_Line> &productline, Statistics *
 void addItems(Product *prods, vector<Product_Line> &productline, Statistics *stats) {
     int add, index, catalog_selection;
     string manufacturer, name, type;
-
 
     //create file to write product history to
     fstream productionFile;
@@ -364,6 +362,7 @@ void addItems(Product *prods, vector<Product_Line> &productline, Statistics *sta
 
         production_number++; // increment production number each time it loops
     }
+    cout << "Items have been added to ProductionLog!" << endl;
     productionFile.close(); // closes file
 }
 
@@ -548,9 +547,8 @@ void displayProductionStats(vector<Product> const &record, std::vector<Product_L
 
     // when statistics_selection == 3, we sort the catalog names and print them in order
     else if (statistics_selection == 3) {
-        catalog_num = productline.size(); // set catalog_num to size of productline vector
         cout << "Sorted products available: " << endl;
-
+        catalog_num = productline.size();
         sort(productline.begin(), productline.end(), sortnames); // sortnames is called
         //productline vector is sorted by name
         for (int i = 0; i < catalog_num; i++) {
@@ -589,6 +587,10 @@ void importData(vector<Product> &record, vector<Product_Line> &productline, Stat
     int visual_num = 0;
     int audiomobile_num = 0;
     int visualmobile_num = 0;
+
+    //clear vectors each time importData runs so elements don't repeat at each instance of main
+    record.erase(record.begin(), record.end());
+    productline.erase(productline.begin(), productline.end());
 
 
     // t starts at 1 and gets incremented for each line
@@ -671,10 +673,12 @@ void importData(vector<Product> &record, vector<Product_Line> &productline, Stat
         ifstream catalogFile;
         catalogFile.open("ProductLine.csv");
 
+        //create variable of the structure Product_Line
+        Product_Line prodLine;
+
         if (catalogFile.is_open()) {
             while (catalogFile >> manufacturer >> name >> type) {
-                //create variable of the structure Product_Line
-                Product_Line prodLine;
+
                 //set prodLine variables to the data obtained from the ProductLine file
                 // useful later while displaying available products and adding items
                 prodLine.manufacturer = manufacturer;
