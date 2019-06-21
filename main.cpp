@@ -298,7 +298,7 @@ void addItems(Product* prods, vector<Product_Line>& productline, Statistics* sta
         prods->manufacturer = productline[index].manufacturer;
         prods->name = productline[index].name;
         prods->type = productline[index].type;
-        stats->production_number = production_number+1; // update production number
+        prods->production_num = production_number+1; // update production number
 
         // store each production in ProductionLog
         // stored in format: production number serial number manufacturer name type
@@ -308,7 +308,7 @@ void addItems(Product* prods, vector<Product_Line>& productline, Statistics* sta
         if (prods->type=="MM") {
             stats->audio_num = stats->audio_num+1;
 
-            productionFile << setfill('0') << setw(3) << stats->production_number << " "
+            productionFile << setfill('0') << setw(3) << prods->production_num << " "
                            << prods->manufacturer.substr(0, 3) << prods->type << setfill('0')
                            << setw(5) << stats->audio_num << " " // serial number
                            << prods->manufacturer << " " << prods->name << " "
@@ -317,13 +317,13 @@ void addItems(Product* prods, vector<Product_Line>& productline, Statistics* sta
             dataFile << prods->manufacturer << "\n" << prods->name << "\n"
                      << prods->type << "\n"
                      << prods->manufacturer.substr(0, 3) << prods->type << setfill('0')
-                     << setw(5) << stats->audio_num << "\n" << stats->production_number << endl;
+                     << setw(5) << stats->audio_num << "\n" << prods->production_num << endl;
 
         }
         if (prods->type=="VI") {
             stats->visual_num = stats->visual_num+1;
 
-            productionFile << setfill('0') << setw(3) << stats->production_number << " "
+            productionFile << setfill('0') << setw(3) << prods->production_num << " "
                            << prods->manufacturer.substr(0, 3) << prods->type << setfill('0') << setw(5)
                            << stats->visual_num << " "
                            << prods->manufacturer << " " << prods->name << " "
@@ -332,12 +332,12 @@ void addItems(Product* prods, vector<Product_Line>& productline, Statistics* sta
             dataFile << prods->manufacturer << "\n" << prods->name << "\n"
                      << prods->type << "\n"
                      << prods->manufacturer.substr(0, 3) << prods->type << setfill('0')
-                     << setw(5) << stats->visual_num << "\n" << stats->production_number << endl;
+                     << setw(5) << stats->visual_num << "\n" << prods->production_num << endl;
         }
         if (prods->type=="AM") {
             stats->audiomobile_num = stats->audiomobile_num+1;
 
-            productionFile << setfill('0') << setw(3) << stats->production_number << " "
+            productionFile << setfill('0') << setw(3) << prods->production_num << " "
                            << prods->manufacturer.substr(0, 3) <<
                            prods->type << setfill('0') << setw(5) << stats->audiomobile_num << " "
                            << prods->manufacturer << " " << prods->name << " "
@@ -346,12 +346,12 @@ void addItems(Product* prods, vector<Product_Line>& productline, Statistics* sta
             dataFile << prods->manufacturer << "\n" << prods->name << "\n"
                      << prods->type << "\n"
                      << prods->manufacturer.substr(0, 3) << prods->type << setfill('0')
-                     << setw(5) << stats->audiomobile_num << "\n" << stats->production_number << endl;
+                     << setw(5) << stats->audiomobile_num << "\n" << prods->production_num << endl;
         }
         if (prods->type=="VM") {
             stats->visualmobile_num = stats->visualmobile_num+1;
 
-            productionFile << setfill('0') << setw(3) << stats->production_number << " "
+            productionFile << setfill('0') << setw(3) << prods->production_num << " "
                            << prods->manufacturer.substr(0, 3) <<
                            prods->type << setfill('0') << setw(5) << stats->visualmobile_num << " "
                            << prods->manufacturer << " " << prods->name << " "
@@ -360,7 +360,7 @@ void addItems(Product* prods, vector<Product_Line>& productline, Statistics* sta
             dataFile << prods->manufacturer << "\n" << prods->name << "\n"
                      << prods->type << "\n"
                      << prods->manufacturer.substr(0, 3) << prods->type << setfill('0')
-                     << setw(5) << stats->visualmobile_num << "\n" << stats->production_number << endl;
+                     << setw(5) << stats->visualmobile_num << "\n" << prods->production_num << endl;
         }
 
         // write to data file to import in the beginning of the program
