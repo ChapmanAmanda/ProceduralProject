@@ -22,9 +22,19 @@ The timeline I have created and hope to stick to, by week:
 
 6. Finish code, test app, run tests using other people, seek help in improving code, meet requirements for Sprint 6 - Quality Analysis turn in 
 
-Time Log: 
-Store product line, production records, and production statistics in structs. 
-Save products that can be produced to a text file named ProductLine.csv  
-Save the production log to a text file name ProductionLog.csv  
-Save the usernames and encrypted passwords to a text file name Users.txt 
-Load data from the files into vectors of structs when the program starts. 
+This weeks productivity: 
+1. Output production statistics such as total number of items produced and number of items of each type. 
+2. Clear all warnings from Inspect Code. 
+3. Format code using standard style guidelines. 
+4. Enhance documentation: 
+    Javadoc style comments for Doxygen 
+    Comments in code 
+    README 
+5. Create animated gif of program running 
+In addition, I improved the flow of the project as suggested   
+changed to passing structures by reference and using pointers   
+statistics now keeps updated count of item types, instead of starting back at 1 each time  
+improved commenting and javadoc style comments for doxygen 
+cleared (almost) all warnings, one remaining right now
+updated displayProductionStatistics to display total number of items produced and items of each type
+improved createPassword function to check passwords with less code
