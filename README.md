@@ -8,6 +8,10 @@ a six week time limit, and PSI requirements.
 To be successful in this goal the project needs to work, be user friendly, and get a grade of B or higher. 
 Stakeholders in this project include myself, Professor Vanselow, and potential employers. 
 
+# Demonstration:
+![](proceduralprojectgif.gif)
+
+
 The timeline I have created and hope to stick to, by week: 
 
 1. Install IDE, watch C++ tutorial videos, learn C++ basics, code, meet requirements for Sprint 1 Backlog (SBL) - Basic Output 
@@ -40,4 +44,4 @@ updated displayProductionStatistics to display total number of items produced an
 improved createPassword function to check passwords with less code
 
 
-LINK:  https://chapmanamanda.github.io/ProceduralProject/  
+LINK:  https://chapmanamanda.github.io/ProceduralProject/html/index.html
