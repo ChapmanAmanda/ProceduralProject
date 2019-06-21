@@ -38,3 +38,6 @@ improved commenting and javadoc style comments for doxygen
 cleared (almost) all warnings, one remaining right now
 updated displayProductionStatistics to display total number of items produced and items of each type
 improved createPassword function to check passwords with less code
+
+
+LINK:  https://chapmanamanda.github.io/ProceduralProject/  
