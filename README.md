@@ -23,11 +23,8 @@ The timeline I have created and hope to stick to, by week:
 6. Finish code, test app, run tests using other people, seek help in improving code, meet requirements for Sprint 6 - Quality Analysis turn in 
 
 Time Log: 
-Spent 4+ hours on sprint 4
-Changes made:
-Create an Employee account. 
-Allow user to input full name in format FirstName LastName.  
-Generate user id, which is their first initial and surname in all lowercase 
-Allow user to input a password for the user  
-The password must contain at least one digit, at least one lowercase letter, and at least one uppercase letter. The password cannot contain a space or any other symbols.  
-Use a recursive function to encrypt the password.  
+Store product line, production records, and production statistics in structs. 
+Save products that can be produced to a text file named ProductLine.csv  
+Save the production log to a text file name ProductionLog.csv  
+Save the usernames and encrypted passwords to a text file name Users.txt 
+Load data from the files into vectors of structs when the program starts. 
