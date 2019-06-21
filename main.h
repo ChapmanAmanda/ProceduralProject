@@ -17,13 +17,8 @@ bool
 menuChoice(std::vector<Product> &record, std::vector<Product_Line> &productline, Statistics *, vector<string> &user_id,
            vector<string> &user_password, Product *);
 
-void produceItems(Product *, std::vector<Product_Line> &productline, Statistics *);
-
 void addEmployeeAccount(vector<string> &user_id, vector<string> &user_password);
 
-void addMusicPlayer();
-
-void addMoviePlayer();
 
 void displayProductionStats(std::vector<Product> const &record, vector<Product_Line> &productline, Statistics *);
 

@@ -83,12 +83,11 @@ int main()
 void showMenu()
 {
     std::cout << "\n___________________________________________\n\n";
-    std::cout << "1. Produce Item\n";
-    std::cout << "2. Add Employee Account\n";
-    std::cout << "3. Add Music Player\n";
-    std::cout << "4. Add Movie Player\n";
-    std::cout << "5. Display Production Statistics\n";
-    std::cout << "6. Exit\n";
+    cout << "1. See available products and produce " << endl;
+    cout << "2. Add new item to the catalog " << endl;
+    cout << "3. Add Employee Account\n";
+    cout << "4. Display Production Statistics\n";
+    cout << "5. Exit\n";
 }
 
 /** @brief menuChoice function gets user input for the menu from showMenu
@@ -110,65 +109,33 @@ bool menuChoice(vector<Product>& record, vector<Product_Line>& productline, Stat
     std::cin >> choice;
     switch (choice) {
     case 1:
-        produceItems(prods, productline, stats);
-        // calls produceItems function where they can see catalog and produce or create new item for catalog
+        cout << "\nSelected: See available products" << endl;
+        showCatalog(prods, productline, stats); // calls showCatalog() which displays available items to produce
+        // showCatalog displays menu and calls function addItems to produce
         break;
     case 2:
+        cout << "\nSelected: Create new item for catalog" << endl;
+        addNewItem(productline);
+        // goes to produce new item function where they can input new products to the catalog
+        break;
+    case 3:
+        cout << "\n Selected: Add employee account" << endl;
         addEmployeeAccount(user_id, user_password);
         // calls addEmployeeAccount function where they create username and password for users.txt
         break;
-    case 3:
-        addMusicPlayer(); // calls addMusicPlayer function
-        break;
     case 4:
-        addMoviePlayer(); // calls addMoviePlayer function
-        break;
-    case 5:
         displayProductionStats(record, productline, stats);
         // calls displayProductionStats function where user can see production history,
         // see catalog items sorted by name, search for production number with serial number
         // and see production statistics
         break;
-    case 6:
+    case 5:
         cout << "Goodbye! ";
         return false; // sets cont = false to end program
     default:
         std::cout << "Not a valid selection\n"; // prints when user enters bad input
     }
     return true; // after each function call, true is returned to cont in order to display menu again
-}
-
-/**@brief produceItems function gets user input to direct them to the right function for the task they want to perform
- * user can either see catalog and produce items, or add new items to the catalog
- *
- * ALL parameters are passed to corresponding functions:
- * @param prods         showCatalog
- * @param productline   showCatalog, addNewItem
- * @param stats         showCatalog
- */
-void produceItems(Product* prods, vector<Product_Line>& productline, Statistics* stats)
-{
-    int selection;
-
-    cout << "Production Line menu: " << endl;
-    cout << "1. See available products" << endl;
-    cout << "2. Produce new item" << endl;
-    cin >> selection; // user input for menu shown above
-
-    switch (selection) {
-    case 1:
-        cout << "Selected: See available products" << endl;
-        showCatalog(prods, productline, stats); // calls showCatalog() which displays available items to produce
-        // showCatalog displays menu and calls function addItems to produce
-        break;
-    case 2:
-        cout << "Selected: Produce new item" << endl;
-        addNewItem(productline);
-        // goes to produce new item function where they can input new products to the catalog
-        break;
-    default:
-        cout << "Not a valid input";
-    }
 }
 
 /**@brief this function gets user input for new items
