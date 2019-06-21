@@ -3,7 +3,9 @@ This project demonstrates knowledge of the C++ language and procedural programmi
 This is simulation of a program that is able to store production log and the users username/password
 
 # Demonstration 
-![](ProceduralGif.gif)
+![](ProceduralGif.gif) 
+
+![](proceduralprojectgif.gif)
 
 # Procedural Project Problem Statement
 Problem statement: 
