@@ -292,7 +292,6 @@ void addItems(Product* prods, vector<Product_Line>& productline, Statistics* sta
     // index = catalog_selection -1 to line their selection up with the index of productline
     // catalog_selection = 1 from the menu, index = 0 for the elements
 
-
     for (int i = 0; i<add; i++) {
 
         // fill prods structure variables with productline vector info corresponding to the users catalog selection
