@@ -244,10 +244,10 @@ void showCatalog(Product *prods, vector<Product_Line> &productline, Statistics *
             index++;
         }
     }
-    if(index > 1) {
+    if (index > 1) {
         addItems(prods, productline, stats);
         // addItems is called after we make sure there are items in the catalog that can be produced
-    }else {
+    } else {
         cout << "There is nothing in the catalog" << endl;
     }
     catalogFile.close(); // closes file
@@ -545,7 +545,7 @@ void displayProductionStats(vector<Product> const &record, std::vector<Product_L
         }
     }
 
-    // when statistics_selection == 3, we sort the catalog names and print them in order
+        // when statistics_selection == 3, we sort the catalog names and print them in order
     else if (statistics_selection == 3) {
         cout << "Sorted products available: " << endl;
         catalog_num = productline.size();
@@ -557,8 +557,8 @@ void displayProductionStats(vector<Product> const &record, std::vector<Product_L
         }
     }
 
-    // when statistics_selection = 4 we display the production statistics: total number of items produced, and number
-    // of each item type produced
+        // when statistics_selection = 4 we display the production statistics: total number of items produced, and number
+        // of each item type produced
     else if (statistics_selection == 4) {
         cout << "Total number of items produced: " << stats->production_number << endl;
         cout << "Total number of audio products produced: " << stats->audio_num << endl;
