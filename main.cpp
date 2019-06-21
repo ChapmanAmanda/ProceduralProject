@@ -210,9 +210,6 @@ void addNewItem(vector<Product_Line> &productline) {
         prodLine.manufacturer = manufacturer;
         prodLine.name = name;
         prodLine.type = itemType;
-
-        // push prodLine variables into productline vector
-        // this is necessary to use later in addItems
         productline.push_back(prodLine);
 
         // create catalog
@@ -548,7 +545,7 @@ void displayProductionStats(vector<Product> const &record, std::vector<Product_L
         }
     }
 
-        // when statistics_selection == 3, we sort the catalog names and print them in order
+    // when statistics_selection == 3, we sort the catalog names and print them in order
     else if (statistics_selection == 3) {
         catalog_num = productline.size(); // set catalog_num to size of productline vector
         cout << "Sorted products available: " << endl;
@@ -561,8 +558,8 @@ void displayProductionStats(vector<Product> const &record, std::vector<Product_L
         }
     }
 
-        // when statistics_selection = 4 we display the production statistics: total number of items produced, and number
-        // of each item type produced
+    // when statistics_selection = 4 we display the production statistics: total number of items produced, and number
+    // of each item type produced
     else if (statistics_selection == 4) {
         cout << "Total number of items produced: " << stats->production_number << endl;
         cout << "Total number of audio products produced: " << stats->audio_num << endl;
@@ -682,8 +679,6 @@ void importData(vector<Product> &record, vector<Product_Line> &productline, Stat
                 prodLine.manufacturer = manufacturer;
                 prodLine.name = name;
                 prodLine.type = type;
-                // push prodLine variables into productline vector for later use in addItems
-                productline.push_back(prodLine);
             }
         }
         catalogFile.close();
