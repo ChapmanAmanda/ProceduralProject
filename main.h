@@ -13,9 +13,11 @@
 
 void showMenu();
 
-bool menuChoice(std::vector<Product> &record, std::vector<Product_Line> &productline, vector<Statistics> &statistics, vector<string> &user_id, vector<string> &user_password);
+bool
+menuChoice(std::vector<Product> &record, std::vector<Product_Line> &productline, Statistics *, vector<string> &user_id,
+           vector<string> &user_password, Product *);
 
-void produceItems(std::vector<Product> &record, std::vector<Product_Line> &productline, vector<Statistics> &statistics);
+void produceItems(Product *, std::vector<Product_Line> &productline, Statistics *);
 
 void addEmployeeAccount(vector<string> &user_id, vector<string> &user_password);
 
@@ -23,19 +25,19 @@ void addMusicPlayer();
 
 void addMoviePlayer();
 
-void displayProductionStats(std::vector<Product> const &record, std::vector<Product_Line> &productline);
+void displayProductionStats(std::vector<Product> const &record, vector<Product_Line> &productline, Statistics *);
 
-void importData(std::vector<Product> &record, std::vector<Product_Line> &productline, vector<Statistics> &statistics);
+void importData(std::vector<Product> &record, std::vector<Product_Line> &productline, Statistics *, Product *);
 
 void addNewItem(std::vector<Product_Line> &productline);
 
-void showCatalog(std::vector<Product> &record, std::vector<Product_Line> &productline, vector<Statistics> &statistics);
+void showCatalog(Product *, std::vector<Product_Line> &productline, Statistics *);
 
-void addItems(std::vector<Product> &record, std::vector<Product_Line> &productline, vector<Statistics> &statistics);
+void addItems(Product *, std::vector<Product_Line> &productline, Statistics *);
 
-void createPassword(vector <string> &user_id, vector<string> &user_password);
+void createPassword(vector<string> &user_id, vector<string> &user_password);
 
-bool sortnames(const Product_Line& a, const Product_Line& b);
+bool sortnames(const Product_Line &a, const Product_Line &b);
 
 std::string encrypt_password(std::string);
 
