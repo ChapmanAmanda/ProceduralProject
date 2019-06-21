@@ -9,7 +9,6 @@ To be successful in this goal the project needs to work, be user friendly, and g
 Stakeholders in this project include myself, Professor Vanselow, and potential employers. 
 
 # Demonstration:
-
 ![](ProceduralGif.gif)
 
 
