@@ -210,7 +210,6 @@ void addNewItem(vector<Product_Line> &productline) {
         prodLine.manufacturer = manufacturer;
         prodLine.name = name;
         prodLine.type = itemType;
-        productline.push_back(prodLine);
 
         // create catalog
         std::ofstream catalogFile;
@@ -245,10 +244,12 @@ void showCatalog(Product *prods, vector<Product_Line> &productline, Statistics *
             cout << index << ". " << manufacturer << " " << name << " " << type << endl;
             index++;
         }
-        addItems(prods, productline, stats);
-        // addItems is called after we make sure there are items in the catalog that can be produced
-    } else {
-        cout << "There is nothing in the catalog" << endl;
+        if(index > 1) {
+            addItems(prods, productline, stats);
+            // addItems is called after we make sure there are items in the catalog that can be produced
+        }else {
+            cout << "There is nothing in the catalog" << endl;
+        }
     }
     catalogFile.close(); // closes file
 }
@@ -679,6 +680,7 @@ void importData(vector<Product> &record, vector<Product_Line> &productline, Stat
                 prodLine.manufacturer = manufacturer;
                 prodLine.name = name;
                 prodLine.type = type;
+                productline.push_back(prodLine);
             }
         }
         catalogFile.close();
