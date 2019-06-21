@@ -44,4 +44,4 @@ updated displayProductionStatistics to display total number of items produced an
 improved createPassword function to check passwords with less code
 
 
-LINK:  https://chapmanamanda.github.io/ProceduralProject/  
+LINK:  https://chapmanamanda.github.io/ProceduralProject/html/index.html
