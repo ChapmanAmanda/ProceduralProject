@@ -481,7 +481,7 @@ void addEmployeeAccount(vector<string>& user_id, vector<string>& user_password)
  */
 void addMusicPlayer()
 {
-    std::cout << "Add Music Player Stub\n";
+    std::cout << "Add Music Player\n";
 }
 
 /** @brief addMoviePlayer function
@@ -489,7 +489,7 @@ void addMusicPlayer()
  */
 void addMoviePlayer()
 {
-    std::cout << "Add Movie Player Stub\n";
+    std::cout << "Add Movie Player\n";
 }
 
 /** @brief sortnames function is a small function used to sort item names alphabetically from Product_Line
