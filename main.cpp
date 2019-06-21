@@ -56,7 +56,8 @@ struct Product {
  Vectors and struct variables are created and passed to functions
  * @return returns 0 if program runs smoothly
  */
-int main() {
+int main()
+{
     vector<Product> record;                     // holds production record
     vector<Product_Line> productline;           // holds product line
     vector<string> user_id;                    // holds user ids of employees
@@ -72,13 +73,15 @@ int main() {
         showMenu(); // displays the menu
         cont = menuChoice(record, productline, &stats, user_id, user_password, &prods);
         // sets return value from menu choice to cont
-    } while (cont); // ends the program when cont = false
+    }
+    while (cont); // ends the program when cont = false
     return 0;
 }
 
 /** @ brief showMenu function displays the program menu to the user
  **/
-void showMenu() {
+void showMenu()
+{
     std::cout << "\n___________________________________________\n\n";
     std::cout << "1. Produce Item\n";
     std::cout << "2. Add Employee Account\n";
@@ -100,36 +103,37 @@ void showMenu() {
  * @param prods         produceItems
  * @return  returns bool cont that determines whether the program keeps running or not
  */
-bool menuChoice(vector<Product> &record, vector<Product_Line> &productline, Statistics *stats,
-                vector<string> &user_id, vector<string> &user_password, Product *prods) {
+bool menuChoice(vector<Product>& record, vector<Product_Line>& productline, Statistics* stats,
+        vector<string>& user_id, vector<string>& user_password, Product* prods)
+{
     int choice;
     std::cin >> choice;
     switch (choice) {
-        case 1:
-            produceItems(prods, productline, stats);
-            // calls produceItems function where they can see catalog and produce or create new item for catalog
-            break;
-        case 2:
-            addEmployeeAccount(user_id, user_password);
-            // calls addEmployeeAccount function where they create username and password for users.txt
-            break;
-        case 3:
-            addMusicPlayer(); // calls addMusicPlayer function
-            break;
-        case 4:
-            addMoviePlayer(); // calls addMoviePlayer function
-            break;
-        case 5:
-            displayProductionStats(record, productline, stats);
-            // calls displayProductionStats function where user can see production history,
-            // see catalog items sorted by name, search for production number with serial number
-            // and see production statistics
-            break;
-        case 6:
-            cout << "Goodbye! ";
-            return false; // sets cont = false to end program
-        default:
-            std::cout << "Not a valid selection\n"; // prints when user enters bad input
+    case 1:
+        produceItems(prods, productline, stats);
+        // calls produceItems function where they can see catalog and produce or create new item for catalog
+        break;
+    case 2:
+        addEmployeeAccount(user_id, user_password);
+        // calls addEmployeeAccount function where they create username and password for users.txt
+        break;
+    case 3:
+        addMusicPlayer(); // calls addMusicPlayer function
+        break;
+    case 4:
+        addMoviePlayer(); // calls addMoviePlayer function
+        break;
+    case 5:
+        displayProductionStats(record, productline, stats);
+        // calls displayProductionStats function where user can see production history,
+        // see catalog items sorted by name, search for production number with serial number
+        // and see production statistics
+        break;
+    case 6:
+        cout << "Goodbye! ";
+        return false; // sets cont = false to end program
+    default:
+        std::cout << "Not a valid selection\n"; // prints when user enters bad input
     }
     return true; // after each function call, true is returned to cont in order to display menu again
 }
@@ -142,7 +146,8 @@ bool menuChoice(vector<Product> &record, vector<Product_Line> &productline, Stat
  * @param productline   showCatalog, addNewItem
  * @param stats         showCatalog
  */
-void produceItems(Product *prods, vector<Product_Line> &productline, Statistics *stats) {
+void produceItems(Product* prods, vector<Product_Line>& productline, Statistics* stats)
+{
     int selection;
 
     cout << "Production Line menu: " << endl;
@@ -151,18 +156,18 @@ void produceItems(Product *prods, vector<Product_Line> &productline, Statistics 
     cin >> selection; // user input for menu shown above
 
     switch (selection) {
-        case 1:
-            cout << "Selected: See available products" << endl;
-            showCatalog(prods, productline, stats); // calls showCatalog() which displays available items to produce
-            // showCatalog displays menu and calls function addItems to produce
-            break;
-        case 2:
-            cout << "Selected: Produce new item" << endl;
-            addNewItem(productline);
-            // goes to produce new item function where they can input new products to the catalog
-            break;
-        default:
-            cout << "Not a valid input";
+    case 1:
+        cout << "Selected: See available products" << endl;
+        showCatalog(prods, productline, stats); // calls showCatalog() which displays available items to produce
+        // showCatalog displays menu and calls function addItems to produce
+        break;
+    case 2:
+        cout << "Selected: Produce new item" << endl;
+        addNewItem(productline);
+        // goes to produce new item function where they can input new products to the catalog
+        break;
+    default:
+        cout << "Not a valid input";
     }
 }
 
@@ -171,7 +176,8 @@ void produceItems(Product *prods, vector<Product_Line> &productline, Statistics 
  *
  * @param productline new items are added to productline vector which is later used to produce in addItems
  */
-void addNewItem(vector<Product_Line> &productline) {
+void addNewItem(vector<Product_Line>& productline)
+{
     string manufacturer;
     string name;
     int type;
@@ -181,7 +187,7 @@ void addNewItem(vector<Product_Line> &productline) {
     cout << "How many new products would you like to create? " << endl;
     cin >> num;
 
-    for (int i = 0; i < num; i++) {
+    for (int i = 0; i<num; i++) {
         cout << "Please enter the Manufacturer of the item: " << endl;
         cin >> manufacturer;                                          // gets user input for manufacturer
         cout << "Please enter the name of the product: " << endl;
@@ -191,18 +197,21 @@ void addNewItem(vector<Product_Line> &productline) {
         cin >> type;                                                 // gets user input for item type
 
         // turn type choice to itemType string
-        if (type == 1) {
+        if (type==1) {
             itemType = "MM";
-        } else if (type == 2) {
+        }
+        else if (type==2) {
             itemType = "VI";
-        } else if (type == 3) {
+        }
+        else if (type==3) {
             itemType = "AM";
-        } else if (type == 4) {
+        }
+        else if (type==4) {
             itemType = "VM";
-        } else {
+        }
+        else {
             cout << "Not a valid input";
         }
-
 
         Product_Line prodLine; //declare Product_Line variable prodLine
         //set structure variables to user input
@@ -229,7 +238,8 @@ void addNewItem(vector<Product_Line> &productline) {
  * @param productline   addItems
  * @param stats         addItems
  */
-void showCatalog(Product *prods, vector<Product_Line> &productline, Statistics *stats) {
+void showCatalog(Product* prods, vector<Product_Line>& productline, Statistics* stats)
+{
     string manufacturer, name, type;
     int index = 1; // index keeps count for each productline to display it like a menu
 
@@ -244,10 +254,11 @@ void showCatalog(Product *prods, vector<Product_Line> &productline, Statistics *
             index++;
         }
     }
-    if (index > 1) {
+    if (index>1) {
         addItems(prods, productline, stats);
         // addItems is called after we make sure there are items in the catalog that can be produced
-    } else {
+    }
+    else {
         cout << "There is nothing in the catalog" << endl;
     }
     catalogFile.close(); // closes file
@@ -261,7 +272,8 @@ void showCatalog(Product *prods, vector<Product_Line> &productline, Statistics *
  * @param productline  used at [index] element to fill prods structure variables
  * @param stats used to keep count of item types and production number while writing to files
  */
-void addItems(Product *prods, vector<Product_Line> &productline, Statistics *stats) {
+void addItems(Product* prods, vector<Product_Line>& productline, Statistics* stats)
+{
     int add, index, catalog_selection;
     string manufacturer, name, type;
 
@@ -276,26 +288,26 @@ void addItems(Product *prods, vector<Product_Line> &productline, Statistics *sta
     cin >> catalog_selection; // selection from the catalog, used to set the index
     cout << "How many items are being produced? " << endl;
     cin >> add;
-    index = catalog_selection - 1;
+    index = catalog_selection-1;
     // index = catalog_selection -1 to line their selection up with the index of productline
     // catalog_selection = 1 from the menu, index = 0 for the elements
 
 
-    for (int i = 0; i < add; i++) {
+    for (int i = 0; i<add; i++) {
 
         // fill prods structure variables with productline vector info corresponding to the users catalog selection
         prods->manufacturer = productline[index].manufacturer;
         prods->name = productline[index].name;
         prods->type = productline[index].type;
-        stats->production_number = production_number + 1; // update production number
+        stats->production_number = production_number+1; // update production number
 
         // store each production in ProductionLog
         // stored in format: production number serial number manufacturer name type
         // four different if statements are used to separate the item types
         // in each if statement, the product type number is incremented
         // serial number is incremented separately for each item type
-        if (prods->type == "MM") {
-            stats->audio_num = stats->audio_num + 1;
+        if (prods->type=="MM") {
+            stats->audio_num = stats->audio_num+1;
 
             productionFile << setfill('0') << setw(3) << stats->production_number << " "
                            << prods->manufacturer.substr(0, 3) << prods->type << setfill('0')
@@ -309,8 +321,8 @@ void addItems(Product *prods, vector<Product_Line> &productline, Statistics *sta
                      << setw(5) << stats->audio_num << "\n" << stats->production_number << endl;
 
         }
-        if (prods->type == "VI") {
-            stats->visual_num = stats->visual_num + 1;
+        if (prods->type=="VI") {
+            stats->visual_num = stats->visual_num+1;
 
             productionFile << setfill('0') << setw(3) << stats->production_number << " "
                            << prods->manufacturer.substr(0, 3) << prods->type << setfill('0') << setw(5)
@@ -323,8 +335,8 @@ void addItems(Product *prods, vector<Product_Line> &productline, Statistics *sta
                      << prods->manufacturer.substr(0, 3) << prods->type << setfill('0')
                      << setw(5) << stats->visual_num << "\n" << stats->production_number << endl;
         }
-        if (prods->type == "AM") {
-            stats->audiomobile_num = stats->audiomobile_num + 1;
+        if (prods->type=="AM") {
+            stats->audiomobile_num = stats->audiomobile_num+1;
 
             productionFile << setfill('0') << setw(3) << stats->production_number << " "
                            << prods->manufacturer.substr(0, 3) <<
@@ -337,8 +349,8 @@ void addItems(Product *prods, vector<Product_Line> &productline, Statistics *sta
                      << prods->manufacturer.substr(0, 3) << prods->type << setfill('0')
                      << setw(5) << stats->audiomobile_num << "\n" << stats->production_number << endl;
         }
-        if (prods->type == "VM") {
-            stats->visualmobile_num = stats->visualmobile_num + 1;
+        if (prods->type=="VM") {
+            stats->visualmobile_num = stats->visualmobile_num+1;
 
             productionFile << setfill('0') << setw(3) << stats->production_number << " "
                            << prods->manufacturer.substr(0, 3) <<
@@ -375,7 +387,8 @@ void addItems(Product *prods, vector<Product_Line> &productline, Statistics *sta
  * @param user_id           user_id at the new users index is stored in users.txt file
  * @param user_password     user_password holds their approved password at a parallel index to user_id
  */
-void createPassword(vector<string> &user_id, vector<string> &user_password) {
+void createPassword(vector<string>& user_id, vector<string>& user_password)
+{
     string password; // stores password
     bool valid; // used to keep do-while loop running until user enters approved password
 
@@ -391,12 +404,14 @@ void createPassword(vector<string> &user_id, vector<string> &user_password) {
         // declared inside loop to reset each time a new password is entered
 
         // use range based for loop to check each letter for uppercase, lowercase, and digits
-        for (char &ch : password) {
+        for (char& ch : password) {
             if (isupper(ch)) {
                 upper = true;
-            } else if (islower(ch)) {
+            }
+            else if (islower(ch)) {
                 lower = true;
-            } else if (isdigit(ch)) {
+            }
+            else if (isdigit(ch)) {
                 digit = true;
             }
         }
@@ -405,7 +420,7 @@ void createPassword(vector<string> &user_id, vector<string> &user_password) {
         valid = upper && lower && digit;
 
         // test for other characters, valid set to false if there are any symbols or spaces
-        for (char &ch : password) {
+        for (char& ch : password) {
             if (!isalnum(ch)) {
                 valid = false;
             }
@@ -415,7 +430,8 @@ void createPassword(vector<string> &user_id, vector<string> &user_password) {
         if (!valid) {
             cout << "your password did not meet all the requirements, try again: " << endl;
         }
-    } while (!valid); // loop continues until valid is true
+    }
+    while (!valid); // loop continues until valid is true
 
     // if password meets requirements, add it to the password vector
     // then encrypt it
@@ -426,7 +442,7 @@ void createPassword(vector<string> &user_id, vector<string> &user_password) {
     ofstream userFile;
     userFile.open("Users.txt", std::ios::app);
     if (userFile.is_open()) {
-        userFile << user_id[user_id.size() - 1] << " " << encrypted << endl;
+        userFile << user_id[user_id.size()-1] << " " << encrypted << endl;
     }
 
 }
@@ -437,7 +453,8 @@ void createPassword(vector<string> &user_id, vector<string> &user_password) {
  * @param user_id generated user id is stored to vector user_id and sent to createPassword
  * @param user_password     passed to createPassword
  */
-void addEmployeeAccount(vector<string> &user_id, vector<string> &user_password) {
+void addEmployeeAccount(vector<string>& user_id, vector<string>& user_password)
+{
     string first_name; // used to hold user input for their first name
     string last_name; // used to hold user input for their last name
     string first_initial; // holds the first initial of users first name to apply to username
@@ -446,31 +463,33 @@ void addEmployeeAccount(vector<string> &user_id, vector<string> &user_password) 
     cin >> first_name >> last_name;
 
     //convert all letters in first_name and last_name to lowercase
-    for (int i = 0; i < first_name.size(); i++) {
+    for (int i = 0; i<first_name.size(); i++) {
         first_name[i] = tolower(first_name[i]);
     }
-    for (int i = 0; i < last_name.size(); i++) {
+    for (int i = 0; i<last_name.size(); i++) {
         last_name[i] = tolower(last_name[i]);
     }
 
     // create username for user in format: first initial of first_name + last_name
     first_initial = first_name.substr(0, 1);
-    user_id.push_back(first_initial + last_name);
-    cout << "Your User ID is: " << first_initial + last_name << "\n\n"; // tell user their username
+    user_id.push_back(first_initial+last_name);
+    cout << "Your User ID is: " << first_initial+last_name << "\n\n"; // tell user their username
 
     createPassword(user_id, user_password); // call function createPassword
 }
 
 /** @brief addMusicPlayer function
  */
-void addMusicPlayer() {
+void addMusicPlayer()
+{
     std::cout << "Add Music Player Stub\n";
 }
 
 /** @brief addMoviePlayer function
  *
  */
-void addMoviePlayer() {
+void addMoviePlayer()
+{
     std::cout << "Add Movie Player Stub\n";
 }
 
@@ -480,8 +499,9 @@ void addMoviePlayer() {
  * @param b     used to sort item names from Product_Line structure
  * @return      returns boolean to displayProduction stats selection 3
  */
-bool sortnames(const Product_Line &a, const Product_Line &b) {
-    return a.name < b.name;
+bool sortnames(const Product_Line& a, const Product_Line& b)
+{
+    return a.name<b.name;
     // returns true/false to sort the structure Product_line by name
 }
 
@@ -493,7 +513,8 @@ bool sortnames(const Product_Line &a, const Product_Line &b) {
  * @param productline  used to sort and display Product_Line structures by name
  * @param stats  used to display production statistics
  */
-void displayProductionStats(vector<Product> const &record, std::vector<Product_Line> &productline, Statistics *stats) {
+void displayProductionStats(vector<Product> const& record, std::vector<Product_Line>& productline, Statistics* stats)
+{
     bool found = false; // set to false to search through vector serial_number
     int element = 0; // used to increment through serial_number vector
     int catalog_num; // used to store the number of items in the catalog for looping
@@ -510,7 +531,7 @@ void displayProductionStats(vector<Product> const &record, std::vector<Product_L
     cin >> statistics_selection;
 
     // if user selects 1 the production history is read from ProductionLog and is displayed
-    if (statistics_selection == 1) {
+    if (statistics_selection==1) {
         ifstream productionFile; // sets up productionFile
         productionFile.open("ProductionLog.csv", ios::in);
         if (productionFile.is_open()) {
@@ -522,15 +543,17 @@ void displayProductionStats(vector<Product> const &record, std::vector<Product_L
         productionFile.close(); // closes file
 
         // when statistics_selection == 2 we are searching for a serial number and printing its production number/item info
-    } else if (statistics_selection == 2) {
+    }
+    else if (statistics_selection==2) {
         cout << " Enter the serial number to search: " << endl;
         cin >> serial;
 
         //while the serial number has not been found, and record vector hasn't been fully searched:
-        while (!found && element < record.size()) {
-            if (record[element].serial_number == serial) {
+        while (!found && element<record.size()) {
+            if (record[element].serial_number==serial) {
                 found = true; // stops searching serial_number vector once serial number is found
-            } else {
+            }
+            else {
                 element += 1; // increments element and keeps searching array
             }
         }
@@ -539,19 +562,20 @@ void displayProductionStats(vector<Product> const &record, std::vector<Product_L
             std::cout << "The production number of that product is " << record[element].production_num << std::endl;
             cout << "Product information : " << record[element].manufacturer << " " << record[element].name << " "
                  << record[element].type << endl;
-        } else {
+        }
+        else {
             // if the whole array is searched and found still equals false, tell the user the serial number wasn't found
             std::cout << "That product name was not found." << std::endl;
         }
     }
 
         // when statistics_selection == 3, we sort the catalog names and print them in order
-    else if (statistics_selection == 3) {
+    else if (statistics_selection==3) {
         cout << "Sorted products available: " << endl;
         catalog_num = productline.size();
         sort(productline.begin(), productline.end(), sortnames); // sortnames is called
         //productline vector is sorted by name
-        for (int i = 0; i < catalog_num; i++) {
+        for (int i = 0; i<catalog_num; i++) {
             // catalog sorted by item name is displayed using productline vector
             cout << productline[i].manufacturer << " " << productline[i].name << " " << productline[i].type << endl;
         }
@@ -559,13 +583,14 @@ void displayProductionStats(vector<Product> const &record, std::vector<Product_L
 
         // when statistics_selection = 4 we display the production statistics: total number of items produced, and number
         // of each item type produced
-    else if (statistics_selection == 4) {
+    else if (statistics_selection==4) {
         cout << "Total number of items produced: " << stats->production_number << endl;
         cout << "Total number of audio products produced: " << stats->audio_num << endl;
         cout << "Total number of visual products produced: " << stats->visual_num << endl;
         cout << "Total number of audiomobile products produced: " << stats->audiomobile_num << endl;
         cout << "Total number of visualmobile products produced: " << stats->visualmobile_num << endl;
-    } else {
+    }
+    else {
         cout << "Not a valid selection.";
     }
 
@@ -581,7 +606,8 @@ void displayProductionStats(vector<Product> const &record, std::vector<Product_L
  * @param stats - used to increment and store number of each item type
  * @param prods - filled with data from data file and used to fill record vector for use throughout the program
  */
-void importData(vector<Product> &record, vector<Product_Line> &productline, Statistics *stats, Product *prods) {
+void importData(vector<Product>& record, vector<Product_Line>& productline, Statistics* stats, Product* prods)
+{
     int t = 1;
     int audio_num = 0;
     int visual_num = 0;
@@ -611,53 +637,53 @@ void importData(vector<Product> &record, vector<Product_Line> &productline, Stat
     while (dataFile.is_open()) {
         while (getline(dataFile, line)) {
             switch (t) {
-                case 1:
-                    manufacturer = line;
-                    prods->manufacturer = manufacturer;
-                    // manufacturer gets line 1
-                    break;
-                case 2:
-                    name = line;
-                    prods->name = name;
-                    // product name gets line 2
-                    break;
-                case 3:
-                    type = line;
-                    prods->type = type;
-                    // product type gets line 3
+            case 1:
+                manufacturer = line;
+                prods->manufacturer = manufacturer;
+                // manufacturer gets line 1
+                break;
+            case 2:
+                name = line;
+                prods->name = name;
+                // product name gets line 2
+                break;
+            case 3:
+                type = line;
+                prods->type = type;
+                // product type gets line 3
 
-                    // increment each product type count
-                    if (type == "MM") {
-                        audio_num = audio_num + 1;
-                    }
-                    if (type == "VI") {
-                        visual_num = visual_num + 1;
-                    }
-                    if (type == "AM") {
-                        audiomobile_num = audiomobile_num + 1;
-                    }
-                    if (type == "VM") {
-                        visualmobile_num = visualmobile_num + 1;
-                    }
-                    break;
-                case 4:
-                    serialNumber = line;
-                    prods->serial_number = serialNumber;
-                    // serial number gets line 4
-                    break;
-                case 5:
-                    // product number gets line 5
-                    production_number = stoi(line); // converts the string on line 5 to an int
-                    stats->production_number = production_number;
-                    prods->production_num = production_number; // keeps the production number in line for use in display production statistics
+                // increment each product type count
+                if (type=="MM") {
+                    audio_num = audio_num+1;
+                }
+                if (type=="VI") {
+                    visual_num = visual_num+1;
+                }
+                if (type=="AM") {
+                    audiomobile_num = audiomobile_num+1;
+                }
+                if (type=="VM") {
+                    visualmobile_num = visualmobile_num+1;
+                }
+                break;
+            case 4:
+                serialNumber = line;
+                prods->serial_number = serialNumber;
+                // serial number gets line 4
+                break;
+            case 5:
+                // product number gets line 5
+                production_number = stoi(line); // converts the string on line 5 to an int
+                stats->production_number = production_number;
+                prods->production_num = production_number; // keeps the production number in line for use in display production statistics
 
-                    // once the end of each data set is reached, push the structure prods variable info into record vector
-                    record.push_back(*prods);
-                    t = 0; // set t back to 0 to keep lines in order
-                    break;
-                default:
-                    t = 0;
-                    break;
+                // once the end of each data set is reached, push the structure prods variable info into record vector
+                record.push_back(*prods);
+                t = 0; // set t back to 0 to keep lines in order
+                break;
+            default:
+                t = 0;
+                break;
             }
             t++; // increments t each loop so it goes to the next case
         }
@@ -691,19 +717,20 @@ void importData(vector<Product> &record, vector<Product_Line> &productline, Stat
     }
 }
 
-
 /** @brief encrypt_password function takes the users password input and encrypts it.
  * @param pass is the users input for their password
  * @return the encrypted password to be stored in users.txt
  */
-string encrypt_password(string pass) {
-    if (pass.length() == 1) {
+string encrypt_password(string pass)
+{
+    if (pass.length()==1) {
         return pass;
-    } else {
+    }
+    else {
         int ascii_code = (int) pass[0];
-        int ascii_code_of_char = ascii_code + 3;
+        int ascii_code_of_char = ascii_code+3;
         char encrypted_char = (char) ascii_code_of_char;
 
-        return encrypted_char + encrypt_password(pass.substr(1, pass.length() - 1));
+        return encrypted_char+encrypt_password(pass.substr(1, pass.length()-1));
     }
 }
