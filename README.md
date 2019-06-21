@@ -8,7 +8,7 @@ a six week time limit, and PSI requirements.
 To be successful in this goal the project needs to work, be user friendly, and get a grade of B or higher. 
 Stakeholders in this project include myself, Professor Vanselow, and potential employers. 
 
-##Demonstration:
+# Demonstration:
 ![](proceduralprojectgif.gif)
 
 
