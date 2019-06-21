@@ -31,3 +31,10 @@ This weeks productivity:
     Comments in code 
     README 
 5. Create animated gif of program running 
+In addition, I improved the flow of the project as suggested   
+changed to passing structures by reference and using pointers   
+statistics now keeps updated count of item types, instead of starting back at 1 each time  
+improved commenting and javadoc style comments for doxygen 
+cleared (almost) all warnings, one remaining right now
+updated displayProductionStatistics to display total number of items produced and items of each type
+improved createPassword function to check passwords with less code
